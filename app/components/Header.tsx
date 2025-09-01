@@ -43,7 +43,7 @@ const Header = () => {
         transition={{ duration: 0.6, delay: 0.5 }}
         className="max-w-2xl mx-auto text-sm text-gray-600 sm:text-base dark:text-white"
       >
-        "Bangun sesuatu yang luar biasa, seperti seorang artisan"
+        &quot;Bangun sesuatu yang luar biasa, seperti seorang artisan&quot;
       </motion.p>
 
       {/* CTA Buttons */}

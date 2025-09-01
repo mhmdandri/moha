@@ -4,13 +4,10 @@ import * as motion from "motion/react-client";
 import { Ovo } from "next/font/google";
 import Image from "next/image";
 import React from "react";
-import { useTheme } from "next-themes";
 
 const ovo = Ovo({ subsets: ["latin"], weight: "400" });
 
 const About = () => {
-  const { theme } = useTheme();
-
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -64,8 +61,8 @@ const About = () => {
           <p
             className={`${ovo.className} mb-10 max-w-2xl text-sm sm:text-base text-gray-700 dark:text-gray-300`}
           >
-            “Setiap baris kode kami adalah bagian dari cerita digital yang
-            bermakna” <br />
+            &quot;Setiap baris kode kami adalah bagian dari cerita digital yang
+            bermakna&quot;
           </p>
 
           <motion.ul
@@ -82,31 +79,29 @@ const About = () => {
             transition={{ duration: 0.8, delay: 1 }}
             className="grid max-w-2xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
           >
-            {infoList.map(
-              ({ icon: Icon, iconDark, title, description }, index) => (
-                <motion.li
-                  variants={{
-                    hidden: { opacity: 0, y: 20 },
-                    visible: { opacity: 1, y: 0 },
-                  }}
-                  whileHover={{ scale: 1.05 }}
-                  key={index}
-                  className="shadow hover:shadow-[4px_4px_0_#000] dark:bg-neutral-800 dark:hover:shadow-[4px_4px_0_#fff]
+            {infoList.map(({ icon: Icon, title, description }, index) => (
+              <motion.li
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: { opacity: 1, y: 0 },
+                }}
+                whileHover={{ scale: 1.05 }}
+                key={index}
+                className="shadow hover:shadow-[4px_4px_0_#000] dark:bg-neutral-800 dark:hover:shadow-[4px_4px_0_#fff]
                            hover:bg-[#fcf4ff] dark:hover:bg-white/10  
                            hover:-translate-y-1 duration-500 
                            border-[0.5px] border-gray-400 dark:border-gray-600 
                            rounded-xl p-6 cursor-pointer"
-                >
-                  <Icon className="w-6 h-6 mt-3 text-gray-600 dark:text-gray-300 sm:w-7 sm:h-7" />
-                  <h3 className="my-4 text-sm font-semibold text-gray-900 dark:text-white sm:text-base">
-                    {title}
-                  </h3>
-                  <p className="text-xs text-gray-600 dark:text-white sm:text-sm">
-                    {description}
-                  </p>
-                </motion.li>
-              )
-            )}
+              >
+                <Icon className="w-6 h-6 mt-3 text-gray-600 dark:text-gray-300 sm:w-7 sm:h-7" />
+                <h3 className="my-4 text-sm font-semibold text-gray-900 dark:text-white sm:text-base">
+                  {title}
+                </h3>
+                <p className="text-xs text-gray-600 dark:text-white sm:text-sm">
+                  {description}
+                </p>
+              </motion.li>
+            ))}
           </motion.ul>
 
           <motion.h4
