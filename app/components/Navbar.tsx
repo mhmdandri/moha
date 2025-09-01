@@ -4,7 +4,8 @@ import React, { useEffect, useState } from "react";
 import { assets } from "@/assets/assets";
 import { useTheme } from "next-themes";
 import { Ovo } from "next/font/google";
-import { Menu, MoveUpRight, X } from "lucide-react";
+import { Menu, Moon, MoveUpRight, Sun, X } from "lucide-react";
+import { motion, AnimatePresence } from "motion/react";
 
 const ovo = Ovo({ subsets: ["latin"], weight: "400" });
 
@@ -13,6 +14,27 @@ const Navbar = () => {
   const [isScroll, setIsScroll] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
+
+  const iconVariants = {
+    exit: {
+      y: 20,
+      opacity: 0,
+      scale: 0.8,
+      transition: { duration: 0.3, ease: "easeInOut" as const },
+    },
+    enter: {
+      y: -20,
+      opacity: 0,
+      scale: 1.2,
+      transition: { duration: 0.3, ease: "easeInOut" as const },
+    },
+    visible: {
+      y: 0,
+      opacity: 1,
+      scale: 1,
+      transition: { duration: 0.3, ease: "easeOut" as const },
+    },
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -126,14 +148,21 @@ const Navbar = () => {
             }
             className="cursor-pointer"
           >
-            {" "}
-            <Image
-              src={
-                resolvedTheme === "dark" ? assets.sun_icon : assets.moon_icon
-              }
-              alt="toggle theme"
-              className="w-6"
-            />{" "}
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={resolvedTheme}
+                variants={iconVariants}
+                initial="enter"
+                animate="visible"
+                exit="exit"
+              >
+                {resolvedTheme === "dark" ? (
+                  <Sun className="w-6" />
+                ) : (
+                  <Moon className="w-6" />
+                )}
+              </motion.div>
+            </AnimatePresence>
           </button>
           <a
             href="#contact"
