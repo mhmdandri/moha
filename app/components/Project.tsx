@@ -2,15 +2,12 @@
 import React from "react";
 import { Ovo } from "next/font/google";
 import { motion } from "motion/react";
-import { useTheme } from "next-themes";
 import { workData } from "@/assets/assets";
 import { ArrowRight, Send } from "lucide-react"; // pakai Lucide icons
 
 const ovo = Ovo({ subsets: ["latin"], weight: "400" });
 
 const Project = () => {
-  const { theme } = useTheme();
-
   return (
     <motion.div
       initial={{ opacity: 0 }}

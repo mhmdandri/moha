@@ -92,7 +92,7 @@ export const workData = [
     title: "Fullstack project",
     description: "Sistem berbasis web",
     bgImage: "/project1.png",
-    link: "https://github.com/mhmdandri",
+    link: "https://cdms.mohaproject.dev/",
   },
   {
     title: "Website Sekolah",
