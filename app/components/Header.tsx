@@ -33,7 +33,7 @@ const Header = () => {
         transition={{ duration: 0.8, delay: 0.2 }}
         className={`${ovo.className} text-2xl sm:text-4xl lg:text-5xl xl:text-[56px] leading-snug`}
       >
-        Solusi Digital Cerdas untuk Personal Brand dan Perusahaan
+        Solusi Digital untuk Personal Brand dan Perusahaan
       </motion.h1>
 
       {/* Subheading */}

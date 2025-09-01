@@ -88,21 +88,11 @@ export const assets = {
 };
 
 export const workData = [
-  // {
-  //   title: "",
-  //   description: "",
-  //   bgImage: "",
-  // },
   {
     title: "Fullstack project",
     description: "Sistem berbasis web",
     bgImage: "/project1.png",
     link: "https://github.com/mhmdandri",
-  },
-  {
-    title: "Website Sekolah",
-    description: "Web Design ",
-    bgImage: "/project2.png",
   },
   {
     title: "Website Sekolah",

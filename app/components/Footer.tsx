@@ -6,7 +6,7 @@ import { Mail, Github, Linkedin, Instagram } from "lucide-react";
 
 const Footer = () => {
   return (
-    <div className="px-6 sm:px-10 md:px-[8%] lg:px-[12%] bg-white dark:bg-black text-gray-800 dark:text-gray-200">
+    <div className="px-6 sm:px-10 md:px-[8%] lg:px-[12%] bg-white dark:bg-inherit text-gray-800 dark:text-gray-200">
       {/* Logo & Email */}
       <div className="text-center">
         <Image

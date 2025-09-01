@@ -14,7 +14,7 @@ const About = () => {
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1 }}
       id="about"
-      className="w-full px-6 sm:px-10 md:px-[8%] lg:px-[12%] py-10 scroll-mt-20 bg-white dark:bg-black"
+      className="w-full px-6 sm:px-10 md:px-[8%] lg:px-[12%] py-10 scroll-mt-20 bg-white dark:bg-inherit"
     >
       <motion.h4
         initial={{ y: -20, opacity: 0 }}
