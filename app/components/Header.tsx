@@ -53,7 +53,7 @@ const Header = () => {
           whileInView={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.7 }}
           href="#services"
-          className="flex items-center gap-2 px-6 py-3 text-sm sm:px-8 sm:text-base 
+          className="flex items-center gap-2 px-8 py-3 text-sm sm:px-8 sm:text-base 
            text-white bg-black border border-white rounded-full 
            hover:bg-black/90 
            dark:border-gray-100 dark:hover:bg-gray-100/50"
