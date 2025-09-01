@@ -9,7 +9,6 @@ const ovo = Ovo({ subsets: ["latin"], weight: "400" });
 
 const Contact = () => {
   const [result, setResult] = React.useState("");
-  const { theme } = useTheme();
 
   const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
