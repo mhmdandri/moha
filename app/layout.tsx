@@ -15,6 +15,12 @@ const Ovo = OvoFont({
 export const metadata: Metadata = {
   title: "moha projects",
   description: "",
+  icons: {
+    icon: [
+      { url: "/logo.png", media: "(prefers-color-scheme: light)" },
+      { url: "/logo-dark.png", media: "(prefers-color-scheme: dark)" },
+    ],
+  },
 };
 
 export default function RootLayout({
@@ -28,18 +34,6 @@ export default function RootLayout({
       suppressHydrationWarning
       className="overflow-x-hidden scroll-smooth"
     >
-      <head>
-        <link
-          rel="icon"
-          href="/logo.png"
-          media="(prefers-color-scheme: light)"
-        />
-        <link
-          rel="icon"
-          href="/logo-dark.png"
-          media="(prefers-color-scheme: dark)"
-        />
-      </head>
       <body className={`${Outfit.className} antialiased  `}>
         <ThemeProvider
           attribute="class"
