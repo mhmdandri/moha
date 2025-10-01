@@ -44,7 +44,6 @@ import {
   Route,
   Server,
 } from "lucide-react";
-// import setting_icon from "./setting-icon.png";
 
 export const assets = {
   user_image,
@@ -89,15 +88,22 @@ export const assets = {
 
 export const workData = [
   {
+    title: "Personal Brand",
+    description: "Web Design ",
+    bgImage: "/project3.png",
+    link: "https://mohaproject.dev/",
+  },
+  {
     title: "Fullstack project",
     description: "Sistem berbasis web",
     bgImage: "/project1.png",
     link: "https://cdms.mohaproject.dev/",
   },
   {
-    title: "Website Sekolah",
-    description: "Web Design ",
-    bgImage: "/project2.png",
+    title: "Fullstack project",
+    description: "Sistem berbasis web",
+    bgImage: "/project4.png",
+    link: "https://cors.mohaproject.dev/",
   },
 ];
 
