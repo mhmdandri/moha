@@ -94,16 +94,28 @@ export const workData = [
     link: "https://mohaproject.dev/",
   },
   {
-    title: "Fullstack project",
+    title: "Fullstack Project",
     description: "Sistem berbasis web",
     bgImage: "/project1.png",
     link: "https://cdms.mohaproject.dev/",
   },
   {
-    title: "Fullstack project",
+    title: "Fullstack Project",
     description: "Sistem berbasis web",
     bgImage: "/project4.png",
     link: "https://cors.mohaproject.dev/",
+  },
+  {
+    title: "Fullstack Project",
+    description: "Digital Wedding Invitation",
+    bgImage: "/project5.png",
+    link: "https://weddingof.mohaproject.dev/",
+  },
+  {
+    title: "Fullstack Project",
+    description: "Digital Wedding Invitation",
+    bgImage: "/project6.png",
+    link: "https://wedding.mohaproject.dev/summary",
   },
 ];
 

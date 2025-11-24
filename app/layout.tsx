@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Outfit as OutfitFont, Ovo as OvoFont } from "next/font/google";
+import { Outfit as OutfitFont } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "./components/ThemeProvider";
 
