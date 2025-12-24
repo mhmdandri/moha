@@ -6,7 +6,7 @@ export const siteConfig = {
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.mohaproject.dev",
   ogImage: "/logo.png",
   locale: "id_ID",
-  email: "mhmdandri@mohaproject.dev",
+  email: "hello@mohaproject.dev",
   sameAs: [
     "https://github.com/mhmdandri",
     "https://www.linkedin.com/in/muhamad-a-067104138/",

@@ -16,7 +16,7 @@ const Footer = () => {
         />
         <div className="flex flex-wrap items-center justify-center gap-2 mt-3 text-sm sm:text-base">
           <Mail className="w-5 h-5 sm:w-6 sm:h-6" />
-          <span>mhmdandri@mohaproject.dev</span>
+          <span>hello@mohaproject.dev</span>
         </div>
       </div>
 
