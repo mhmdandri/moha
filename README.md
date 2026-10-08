@@ -29,6 +29,32 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
+## Deploy with Docker
+
+The production container listens on port `3000` internally and is available at
+port `3002` on the host. It uses the existing external Docker network
+`undangan-andri_default`.
+
+Make sure the network already exists, then build and start the application:
+
+```bash
+docker network inspect undangan-andri_default
+docker compose up -d --build
+```
+
+Open [http://localhost:3002](http://localhost:3002) after the container is
+running. To set the canonical site URL, create a `.env` file with:
+
+```env
+NEXT_PUBLIC_SITE_URL=https://example.com
+```
+
+Stop the container with:
+
+```bash
+docker compose down
+```
+
 ## Deploy on Vercel
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
