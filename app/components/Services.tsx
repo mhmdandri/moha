@@ -1,11 +1,8 @@
 "use client";
-import * as motion from "motion/react-client";
 import React from "react";
-import { Ovo } from "next/font/google";
-import { useTheme } from "next-themes";
+import * as motion from "motion/react-client";
 import { serviceData } from "@/assets/assets";
-
-const ovo = Ovo({ subsets: ["latin"], weight: "400" });
+import { ovo } from "@/lib/fonts";
 
 const containerVariants = {
   hidden: {},
@@ -22,8 +19,6 @@ const itemVariants = {
 };
 
 const Services = () => {
-  const { theme } = useTheme();
-
   return (
     <motion.div
       variants={containerVariants}

@@ -1,22 +1,23 @@
 "use client";
-import React from "react";
-import { Ovo } from "next/font/google";
+import React, { useState } from "react";
 import { motion } from "motion/react";
-import { useTheme } from "next-themes";
 import { ArrowRight } from "lucide-react";
+import { ovo } from "@/lib/fonts";
 
-const ovo = Ovo({ subsets: ["latin"], weight: "400" });
+const WEB3FORMS_ACCESS_KEY =
+  process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY ??
+  "ff447cd3-0f53-4a79-ae17-30dc6f496b40";
 
 const Contact = () => {
-  const [result, setResult] = React.useState("");
+  const [result, setResult] = useState("");
 
   const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setResult("Sending....");
+    setResult("Mengirim pesan...");
     const form = event.currentTarget;
     const formData = new FormData(form);
 
-    formData.append("access_key", "ff447cd3-0f53-4a79-ae17-30dc6f496b40");
+    formData.append("access_key", WEB3FORMS_ACCESS_KEY);
 
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
@@ -27,13 +28,13 @@ const Contact = () => {
       const data: { success: boolean; message: string } = await response.json();
 
       if (data.success) {
-        setResult("Form Submitted Successfully");
+        setResult("Pesan berhasil dikirim! Kami akan segera menghubungi Anda.");
         form.reset();
       } else {
-        setResult(data.message);
+        setResult(data.message || "Gagal mengirim pesan.");
       }
-    } catch (error) {
-      setResult("Something went wrong. Please try again.");
+    } catch {
+      setResult("Terjadi kesalahan koneksi. Silakan coba lagi.");
     }
   };
 
@@ -43,7 +44,7 @@ const Contact = () => {
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1 }}
       id="contact"
-      className="w-full px px-6 sm:px-10 md:px-[8%] lg:px-[12%] py-10 scroll-mt-20 bg-white bg-[url('/footer-bg-color.png')] bg-no-repeat bg-center bg-[length:90%_auto] dark:bg-none dark:bg-inherit"
+      className="w-full px-6 sm:px-10 md:px-[8%] lg:px-[12%] py-10 scroll-mt-20 bg-white bg-[url('/footer-bg-color.png')] bg-no-repeat bg-center bg-[length:90%_auto] dark:bg-none dark:bg-inherit"
     >
       <motion.h4
         initial={{ y: -20, opacity: 0 }}
@@ -118,9 +119,11 @@ const Contact = () => {
           Kirim
           <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
         </motion.button>
-        <p className="mt-4 text-sm text-center text-gray-700 dark:text-gray-300">
-          {result}
-        </p>
+        {result && (
+          <p className="mt-4 text-sm text-center text-gray-700 dark:text-gray-300">
+            {result}
+          </p>
+        )}
       </motion.form>
     </motion.div>
   );

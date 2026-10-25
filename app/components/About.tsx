@@ -1,11 +1,9 @@
 "use client";
-import { assets, infoList, toolsData } from "@/assets/assets";
-import * as motion from "motion/react-client";
-import { Ovo } from "next/font/google";
-import Image from "next/image";
 import React from "react";
-
-const ovo = Ovo({ subsets: ["latin"], weight: "400" });
+import Image from "next/image";
+import * as motion from "motion/react-client";
+import { assets, infoList, toolsData } from "@/assets/assets";
+import { ovo } from "@/lib/fonts";
 
 const About = () => {
   return (
@@ -104,20 +102,11 @@ const About = () => {
             ))}
           </motion.ul>
 
-          <motion.h4
-            initial={{ y: 20, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.5, delay: 1.3 }}
-            className={`${ovo.className} my-6 text-gray-700 dark:text-gray-300 text-sm sm:text-base`}
-          >
-            {/* Tools I use */}
-          </motion.h4>
-
           <motion.ul
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 1.5 }}
-            className="flex flex-wrap items-center gap-3 sm:gap-5"
+            className="flex flex-wrap items-center gap-3 sm:gap-5 mt-8"
           >
             {toolsData.map((tool, index) => (
               <motion.li

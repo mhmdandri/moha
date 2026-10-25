@@ -16,15 +16,13 @@ const Footer = () => {
         />
         <div className="flex flex-wrap items-center justify-center gap-2 mt-3 text-sm sm:text-base">
           <Mail className="w-5 h-5 sm:w-6 sm:h-6" />
-          <span>hello@mohaproject.dev</span>
+          <span>info@mohaproject.tech</span>
         </div>
       </div>
 
       {/* Bottom Section */}
       <div className="items-center justify-between py-6 mt-10 text-sm text-center border-t border-gray-400 dark:border-gray-600 sm:flex sm:mt-12 sm:text-base">
-        <p className="mb-4 sm:mb-0">
-          © 2025 Moha Project. All rights reserved.
-        </p>
+        <p className="mb-4 sm:mb-0">© 2026 mohaproject. All rights reserved.</p>
         <ul className="flex flex-wrap items-center justify-center gap-6 sm:gap-10">
           <li>
             <a

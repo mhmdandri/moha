@@ -1,31 +1,82 @@
 import type { Metadata } from "next";
-import { Outfit as OutfitFont } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "./components/ThemeProvider";
-import { siteConfig } from "@/lib/site";
-
-const Outfit = OutfitFont({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-});
+import { siteConfig, faqsData } from "@/lib/site";
+import { outfit } from "@/lib/fonts";
 
 const siteLogoUrl = new URL(siteConfig.ogImage, siteConfig.url).toString();
-const structuredData = {
+
+const professionalServiceSchema = {
   "@context": "https://schema.org",
-  "@type": "Organization",
+  "@type": "ProfessionalService",
   name: siteConfig.name,
   url: siteConfig.url,
   logo: siteLogoUrl,
+  image: siteLogoUrl,
   email: siteConfig.email,
+  telephone: "+6281210860242",
+  priceRange: "IDR",
+  address: {
+    "@type": "PostalAddress",
+    addressCountry: "ID",
+  },
   sameAs: siteConfig.sameAs,
   description: siteConfig.description,
-  contactPoint: [
-    {
-      "@type": "ContactPoint",
-      email: siteConfig.email,
-      contactType: "customer service",
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Layanan Pembuatan Website & Solusi Digital",
+    itemListElement: [
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Jasa Pembuatan Website & Web App Fullstack",
+          description:
+            "Pembuatan website modern, responsif, cepat dengan Next.js, React, Node.js, dan database.",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Jasa Undangan Pernikahan Digital & QR Check-In",
+          description:
+            "Website undangan pernikahan digital interaktif dengan sistem RSVP dan QR code check-in tamu.",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Jasa Pembuatan Landing Page & Personal Brand",
+          description:
+            "Landing page konversi tinggi untuk personal brand, UMKM, dan profil perusahaan profesional.",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Jasa Desain UI/UX & Redesign Website",
+          description:
+            "Merancang antarmuka website yang intuitif, estetis, dan memberikan pengalaman pengguna terbaik.",
+        },
+      },
+    ],
+  },
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqsData.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.answer,
     },
-  ],
+  })),
 };
 
 export const metadata: Metadata = {
@@ -53,7 +104,9 @@ export const metadata: Metadata = {
     images: [
       {
         url: siteConfig.ogImage,
-        alt: `${siteConfig.name} logo`,
+        width: 1200,
+        height: 630,
+        alt: `${siteConfig.name} - Jasa Pembuatan Website & Web Developer`,
       },
     ],
   },
@@ -95,10 +148,19 @@ export default function RootLayout({
       suppressHydrationWarning
       className="overflow-x-hidden scroll-smooth"
     >
-      <body className={`${Outfit.className} antialiased  `}>
+      <body className={`${outfit.className} antialiased`}>
+        {/* Schema.org Structured Data for Google Rich Snippets */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(professionalServiceSchema),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(faqSchema),
+          }}
         />
         <ThemeProvider
           attribute="class"
