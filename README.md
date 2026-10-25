@@ -16,47 +16,37 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
 ## Deploy with Docker
 
-The production container listens on port `3000` internally and is available at
-port `3002` on the host. It uses the existing external Docker network
-`undangan-andri_default`.
+Container berjalan di port internal `3000` dan di-expose ke port host `3001`. Menggunakan external network `moha_network`.
 
-Make sure the network already exists, then build and start the application:
-
+1. Pastikan network docker sudah ada:
 ```bash
-docker network inspect undangan-andri_default
+docker network create moha_network 2>/dev/null || true
+```
+
+2. Buat file `.env` di server (bisa copy dari `.env.example` atau `.env.local`):
+```env
+NEXT_PUBLIC_SITE_URL=https://www.mohaproject.tech
+NEXT_PUBLIC_SUPABASE_URL=https://kdvwuymbzipjuvvcvxmw.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=sb_publishable_vhyjqQUX_Ndom1vO_07XVQ_vQf6UXpk
+```
+
+3. Build dan jalankan container:
+```bash
 docker compose up -d --build
 ```
 
-Open [http://localhost:3002](http://localhost:3002) after the container is
-running. To set the canonical site URL, create a `.env` file with:
-
-```env
-NEXT_PUBLIC_SITE_URL=https://example.com
-```
-
-Stop the container with:
-
+4. Hentikan container:
 ```bash
 docker compose down
 ```
 
-## Deploy on Vercel
+## Deploy on Vercel / Cloud Provider
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Jika menggunakan Vercel, Coolify, Railway, dsb:
+1. Pastikan menambahkan Environment Variables di dashboard hosting:
+   - `NEXT_PUBLIC_SITE_URL` = `https://www.mohaproject.tech`
+   - `NEXT_PUBLIC_SUPABASE_URL` = `https://kdvwuymbzipjuvvcvxmw.supabase.co`
+   - `NEXT_PUBLIC_SUPABASE_ANON_KEY` = `sb_publishable_vhyjqQUX_Ndom1vO_07XVQ_vQf6UXpk`
+2. Lakukan trigger **Redeploy** (Pastikan centang "Clear Cache" jika ada).
