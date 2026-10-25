@@ -134,6 +134,9 @@ export const metadata: Metadata = {
       "max-video-preview": -1,
     },
   },
+  verification: {
+    google: "google11f8e68113a2d90c",
+  },
   category: "technology",
 };
 

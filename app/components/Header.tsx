@@ -12,7 +12,7 @@ const Header = () => {
       className="flex flex-col items-center justify-center w-11/12 min-h-screen max-w-5xl gap-6 px-4 py-24 mx-auto text-center sm:px-6"
     >
       {/* Availability Status Badge */}
-      <motion.div
+      {/* <motion.div
         initial={{ y: -20, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5 }}
@@ -25,7 +25,7 @@ const Header = () => {
         <span className="text-gray-800 dark:text-gray-200">
           Tersedia untuk Proyek Baru &amp; Freelance
         </span>
-      </motion.div>
+      </motion.div> */}
 
       {/* Logo */}
       <motion.div
@@ -58,7 +58,9 @@ const Header = () => {
         transition={{ duration: 0.6, delay: 0.5 }}
         className="max-w-2xl mx-auto text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed"
       >
-        Membantu personal brand, UMKM, dan perusahaan membangun eksistensi digital yang modern, responsif, cepat, dan terindeks di mesin pencari Google.
+        Membantu personal brand, UMKM, dan perusahaan membangun eksistensi
+        digital yang modern, responsif, cepat, dan terindeks di mesin pencari
+        Google.
       </motion.p>
 
       {/* CTA Buttons */}
